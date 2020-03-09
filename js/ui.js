@@ -10,6 +10,6 @@ export const toggleClass = (element, toggleClass) => {
     element.classList.toggle(toggleClass);
 };
 
+//Añadimos y quitamos loader con class
 const loader = document.querySelector('#loader');
-
 export const renderLoader = toogle(loader);
