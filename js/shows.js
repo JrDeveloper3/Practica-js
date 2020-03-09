@@ -9,7 +9,7 @@ const templateShow = ({name, summary, principal, image}) => `
     </header>
     <div class="card-content">
       <div class="card-content-image">
-        <img src="${ image ? image.medium : image}">
+        <img src="${ image ? image.medium : "../img/defaul.png"}">
       </div>
       <div class="card-content-text">
         <p>${summary}
@@ -44,8 +44,16 @@ const templateShow = ({name, summary, principal, image}) => `
 
 
 const renderShows = (element, shows) => {
-    const htmlShows = shows.map(templateShow).join('')
-    element.innerHTML = htmlShows;
+    const htmlShows = shows.slice(0, 6).map( (show,index) =>{
+      if(index <2){
+        return templateShow({...show, principal:true})
+      }
+      return templateShow({...show, principal:false});
+    }).join('')
+    element.innerHTML = `
+    <div class="show-section">
+    ${htmlShows}
+    </div>`;
     // Otra forma de abrir y cerrar tarjetas
     //despues de que se haya pintado para manejar los header
     const headers = document.querySelectorAll('.card.secondary .card-header');
