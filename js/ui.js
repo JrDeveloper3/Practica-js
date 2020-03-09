@@ -9,3 +9,7 @@
 export const toggleClass = (element, toggleClass) => {
     element.classList.toggle(toggleClass);
 };
+
+const loader = document.querySelector('#loader');
+
+export const renderLoader = toogle(loader);

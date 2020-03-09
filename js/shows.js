@@ -1,4 +1,4 @@
-import {toggleClass} from './ui.js';
+import {toggleClass, renderLoader} from './ui.js';
 import api from './api.js';
 
 
@@ -29,10 +29,24 @@ const templateShow = ({name, summary, principal, image}) => `
     </div>
   </div>
   `;
+//Manera más eficiente abrir cerrar tarjetas
+// const mainSection = document.querySelector('main');
+// mainSection.addEventListener("click", ev => {
+//   // esto busca el elemento más cercano
+//   const header = ev.srcElement.closest(".card-header");
+//   if(header){
+//     const show = header.parentElement;
+//     if(!show.classList.contains('principal')){
+//       toggleClass(show,'close');
+//     }
+//   }
+// })
+
 
 const renderShows = (element, shows) => {
     const htmlShows = shows.map(templateShow).join('')
     element.innerHTML = htmlShows;
+    // Otra forma de abrir y cerrar tarjetas
     //despues de que se haya pintado para manejar los header
     const headers = document.querySelectorAll('.card.secondary .card-header');
     headers.forEach(header =>{
@@ -47,11 +61,14 @@ const {getShows} = api();
 
 const renderShowsDOM = async text => {
   try{
+   renderLoader('hide','show');
    const mainSection = document.querySelector('main');
    const items = await getShows(text);
    renderShows(mainSection, items);
   } catch (err){
     console.error(err);
+  } finally {
+    renderLoader('show','hide');
   }
 };
 

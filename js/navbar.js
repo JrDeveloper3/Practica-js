@@ -23,5 +23,7 @@ searchForm.addEventListener('submit', (evt) => {
     if(searchInput.validity.valid){
         //render shows
        renderShowsDOM(searchInput.value);
+    } else {
+        renderShowsDOM();
     }
 });
