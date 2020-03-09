@@ -44,6 +44,8 @@ const templateShow = ({name, summary, principal, image}) => `
 
 
 const renderShows = (element, shows) => {
+  // slice sirve para mostrar los numeros deseados del contenido del array
+  //...Rest Operator paa darle valor al principal que contiene cada show
     const htmlShows = shows.slice(0, 6).map( (show,index) =>{
       if(index <2){
         return templateShow({...show, principal:true})
