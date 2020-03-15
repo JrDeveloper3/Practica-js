@@ -1,17 +1,18 @@
 import { renderShowsDOM } from './shows.js'
 import  renderDetail from './detail.js';
-import { handleNavbar } from './navbar.js';
+import { showFilter, hideFilter } from './navbar.js';
 
 page('/',()=> {
     console.log('home page');
-    handleNavbar('no-filter', 'filter') // aparece buscador
+    showFilter() // aparece buscador
     renderShowsDOM();
 });
 page('/detail/:id', ctx => {
     console.log('Detalle');
+    //para conseguir los params que contiene ctx de la llamada
     const { params: { id } } = ctx;
     console.log(id);
-    handleNavbar('filter', 'no-filter') // quita buscador
-    renderDetail();
+    hideFilter() // quita buscador
+    renderDetail(id);
 });
 page();

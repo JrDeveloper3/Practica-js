@@ -28,4 +28,7 @@ searchForm.addEventListener('submit', (evt) => {
     }
 });
 
-export {handleNavbar};
+const hideFilter = () => handleNavbar('filter', 'no-filter');
+const showFilter = () => handleNavbar('no-filter', 'filter');
+
+export {hideFilter, showFilter};
