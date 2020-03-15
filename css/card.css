@@ -131,6 +131,7 @@
     transition: opacity 0.3s linear;
     visibility: hidden;
     opacity: 0;
+    color: white;
   }
   .secondary .card-content-text h2,
 .secondary .card-header h2 {

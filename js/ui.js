@@ -13,3 +13,11 @@ export const toggleClass = (element, toggleClass) => {
 //Añadimos y quitamos loader con class
 const loader = document.querySelector('#loader');
 export const renderLoader = toogle(loader);
+
+// mostrar u ocultar comentarios
+const detailSection = document.querySelector('#detailSection');
+export const showQuotesForm = () => detailSection.style.display ='block';
+export const hideQuotesForm = () => detailSection.style.display = 'none';
+
+//forma 2
+ //export const handleQuotesForm = diplay => detailSection.style.display=diplay;
