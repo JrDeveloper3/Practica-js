@@ -2,8 +2,9 @@ import {toggleClass, renderLoader} from './ui.js';
 import api from './api.js';
 
 
-const templateShow = ({name, summary, principal, image}) => ` 
+const templateShow = ({name, summary, principal, image,id}) => `
     <div class="card ${principal ? 'principal' : 'secondary close'}">
+    <a href="/detail/${id}">
     <header class="card-header">
       <h2>${name}</h2>
     </header>
@@ -27,6 +28,7 @@ const templateShow = ({name, summary, principal, image}) => `
         </div>
       </div>
     </div>
+    </a>
   </div>
   `;
 //Manera más eficiente abrir cerrar tarjetas
@@ -62,6 +64,7 @@ const renderShows = (element, shows) => {
     headers.forEach(header =>{
       const element = header.parentNode; //esto nos da el elemento anterior que es donde queremos cambiar la class
       header.addEventListener('click', evt => {
+        evt.preventDefault();
       toggleClass(element, 'close');  
       });
     });
@@ -82,6 +85,6 @@ const renderShowsDOM = async text => {
   }
 };
 
-renderShowsDOM();
+
 
 export {renderShowsDOM};

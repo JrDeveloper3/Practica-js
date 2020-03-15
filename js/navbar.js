@@ -27,3 +27,5 @@ searchForm.addEventListener('submit', (evt) => {
         renderShowsDOM();
     }
 });
+
+export {handleNavbar};
