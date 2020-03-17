@@ -23,7 +23,6 @@ const renderDetail = async id => {
         const selector = document.querySelector('main');
         // de la llamada recibiremos un show
         const show = await getShowDetail(id);
-        console.log(show);
         selector.innerHTML = detailTemplate(show);
     } catch(err){
         console.error(err);

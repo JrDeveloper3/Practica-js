@@ -28,7 +28,7 @@ searchForm.addEventListener('submit', (evt) => {
     }
 });
 
-const hideFilter = () => handleNavbar('filter', 'no-filter');
-const showFilter = () => handleNavbar('no-filter', 'filter');
+const hideFilter = () => handleNavbar('filter', 'no-filter'); //oculta el filtro
+const showFilter = () => handleNavbar('no-filter', 'filter'); //muestra el filtro
 
 export {hideFilter, showFilter};

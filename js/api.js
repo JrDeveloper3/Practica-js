@@ -37,6 +37,26 @@ const api = (API_URL = 'https://api.tvmaze.com/') => {
         console.error(err);
       }
     },
+    createQuote: async (id,text) => {
+      try{
+        const response = await fetch(`${API_URL}quote/${id}`, {
+          method: "POST",
+          body: JSON.stringify({ quote: text }),
+          headers: {
+            'Content-type':'application/json',
+            'X-API-KEY': API_KEY
+          },
+
+        });
+        if(!response.ok){
+          throw new Error ('Error getting quote');
+        }
+        const quote = await response.json();
+        return quote;
+      } catch(err){
+        console.error(err);
+      }
+    },
 
     };
 
