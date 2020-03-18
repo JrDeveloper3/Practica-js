@@ -4,19 +4,20 @@ import {renderQuotes} from './quotes.js'
 const {getShowDetail} = api();
 
 const detailTemplate = ({name,image,id,summary}) =>`
-    <div class="detail-section>
-        <header id="${id}">
-            <div class="title-section">
-                <h1>${name}</h1>
-            </div>
-            <div class="image-container">
-            <img src="${ image ? image.medium : "../img/defaul.png"}">
-            </div>
-        </header>
-        <div class="content">
+        <div class="detail-section">
+            <header id="${id}">
+                <div class="title-section">
+                    <h1>${name}</h1>
+                </div>
+                <div class="image-container">
+                    <img src="${ image ? image.medium : "../img/defaul.png"}">
+                </div>
+            </header>
+            <div class="content">
             ${summary}
+            </div>
         </div>
-    </div>
+
 `;
 
 // Promis.all() recibe una array de promesas que las ejecutara todas a la vez y acabara 
