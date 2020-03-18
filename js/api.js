@@ -37,13 +37,26 @@ const api = (API_URL = 'https://api.tvmaze.com/') => {
         console.error(err);
       }
     },
+    getQuotes: async id => {
+      try{
+        const response = await fetch(`${API_URL}quote/${id}`);
+        if(!response.ok){
+          throw new Error('Error fetching quotes');
+        }
+        const quotes = await response.json();
+        return quotes;
+        
+      }catch(err){
+        console.error(err);
+      }
+    },
     createQuote: async (id,text) => {
       try{
         const response = await fetch(`${API_URL}quote/${id}`, {
           method: "POST",
-          body: JSON.stringify({ quote: text }),
+          body: JSON.stringify({ quote: text }), // transformacion
           headers: {
-            'Content-type':'application/json',
+            'Content-type':'application/json', // tipo de informacion que le enviamos
             'X-API-KEY': API_KEY
           },
 

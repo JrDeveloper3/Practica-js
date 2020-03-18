@@ -11,10 +11,8 @@ page('/',()=> {
     renderShowsDOM();
 });
 page('/detail/:id', ctx => {
-    console.log('Detalle');
     //para conseguir los params que contiene ctx de la llamada
     const { params: { id } } = ctx;
-    console.log(id);
     hideFilter() // quita buscador
     showQuotesForm();
     renderDetail(id);
