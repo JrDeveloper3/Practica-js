@@ -3,7 +3,7 @@ import  renderDetail from './detail.js';
 import { showFilter, hideFilter } from './navbar.js';
 import { showQuotesForm, hideQuotesForm } from './ui.js';
 import  addQuoteListener  from './quotesForm.js';
-const page = page();
+
 page('/',()=> {
   console.log('home page');
   showFilter(); // aparece buscador
