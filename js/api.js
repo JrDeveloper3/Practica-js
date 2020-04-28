@@ -53,7 +53,7 @@ const api = (API_URL = 'https://api.tvmaze.com/') => {
     createQuote: async (id,text) => {
       try{
         const response = await fetch(`${API_URL}quote/${id}`, {
-          method: "POST",
+          method: 'POST"',
           body: JSON.stringify({ quote: text }), // transformacion
           headers: {
             'Content-type':'application/json', // tipo de informacion que le enviamos
@@ -71,7 +71,7 @@ const api = (API_URL = 'https://api.tvmaze.com/') => {
       }
     },
 
-    };
+  };
 
 };
 

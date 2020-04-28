@@ -10,7 +10,7 @@ const detailTemplate = ({name,image,id,summary}) =>`
                     <h1>${name}</h1>
                 </div>
                 <div class="image-container">
-                    <img src="${ image ? image.medium : "../img/defaul.png"}">
+                    <img src='${ image ? image.medium : '../img/defaul.png'}'>
                 </div>
             </header>
             <div class="content">
