@@ -22,6 +22,7 @@ const detailTemplate = ({name,image,id,summary}) =>`
 
 // Promis.all() recibe una array de promesas que las ejecutara todas a la vez y acabara 
 // cuando termine la promesa mas larga, la funciones no deben depender entre ella para lanzarse
+//Promise.all devuelve un array con lo que devuelve cada promesa
 
 
 const renderDetail = async id => {
@@ -30,8 +31,9 @@ const renderDetail = async id => {
         // de la llamada recibiremos un show -> Sustituido pr Promise.all
         //const show = await getShowDetail(id); -> Sustituido pr Promise.all
         // Con el destructuring conseguimos el valor de la posición 1 de la array
+        // el show se queda con el valor de la primera promise(getShowDetail).
         const [show] = await Promise.all([getShowDetail(id), renderQuotes(id)]);
-        //renderQuotes(id); -> Sustituido pr Promise.all
+        //renderQuotes(id); -> Sustituido por Promise.all
         selector.innerHTML = detailTemplate(show);
     } catch(err){
         console.error(err);

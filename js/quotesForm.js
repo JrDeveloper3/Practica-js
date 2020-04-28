@@ -13,7 +13,6 @@ export const quoteTemplate = ({quote,date}) => `
 `
 
 const addQuoteListener = id => {
-console.log('quote');
 const quotesForm = document.querySelector('#quote-form');
 const quotesInput = document.querySelector('#quote');
 const quoteList = document.querySelector('#quoteList');
