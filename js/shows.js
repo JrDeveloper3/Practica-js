@@ -10,7 +10,7 @@ const templateShow = ({name, summary, principal, image,id}) => `
     <div class="card-content">
     <a href="/detail/${id}">
       <div class="card-content-image">
-        <img src="${ image ? image.medium : "../img/defaul.png"}">
+        <img src="${ image ? image.medium : '../img/defaul.png"}'>
       </div>
       <div class="card-content-text">
         <p>${summary}
