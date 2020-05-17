@@ -10,7 +10,7 @@ const templateShow = ({name, summary, principal, image,id}) => `
     <div class="card-content">
     <a href="/detail/${id}">
       <div class="card-content-image">
-        <img src="${ image ? image.medium : '../img/defaul.png"}'>
+        <img src="${ image ? image.medium : '../img/defaul.png'}">
       </div>
       <div class="card-content-text">
         <p>${summary}
@@ -48,26 +48,26 @@ const templateShow = ({name, summary, principal, image,id}) => `
 const renderShows = (element, shows) => {
   // slice sirve para mostrar los numeros deseados del contenido del array
   //...Rest Operator paa darle valor al principal que contiene cada show
-    const htmlShows = shows.slice(0, 6).map( (show,index) =>{
-      if(index <2){
-        return templateShow({...show, principal:true})
-      }
-      return templateShow({...show, principal:false});
-    }).join('')
-    element.innerHTML = `
+  const htmlShows = shows.slice(0, 6).map( (show,index) =>{
+    if(index <2){
+      return templateShow({...show, principal:true});
+    }
+    return templateShow({...show, principal:false});
+  }).join('');
+  element.innerHTML = `
     <div class="show-section">
     ${htmlShows}
     </div>`;
-    // Otra forma de abrir y cerrar tarjetas
-    //despues de que se haya pintado para manejar los header
-    const headers = document.querySelectorAll(' .card.secondary .card-header');
-    headers.forEach(header =>{
-      const element = header.parentNode; //esto nos da el elemento anterior que es donde queremos cambiar la class
-      header.addEventListener('click', evt => {
-        evt.preventDefault();
+  // Otra forma de abrir y cerrar tarjetas
+  //despues de que se haya pintado para manejar los header
+  const headers = document.querySelectorAll(' .card.secondary .card-header');
+  headers.forEach(header =>{
+    const element = header.parentNode; //esto nos da el elemento anterior que es donde queremos cambiar la class
+    header.addEventListener('click', evt => {
+      evt.preventDefault();
       toggleClass(element, 'close');  
-      });
     });
+  });
 };
 
 const {getShows} = api();
