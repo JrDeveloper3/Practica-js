@@ -13,7 +13,7 @@ const storage = (type = 'lStorage') => {
   const types = {
     lStorage,
     cookieStorage,
-  }
+  };
   if (typeof(Storage) !== "undefined") {
     return types[type];
   }
