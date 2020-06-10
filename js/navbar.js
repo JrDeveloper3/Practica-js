@@ -2,14 +2,14 @@ import {toogle} from './ui.js';
 import { renderShowsDOM } from './shows.js';
 import storage from './storage.js';
 
-const {setItem} = storage();
+const {setItem, getItem} = storage('cookieStorage');
 const navbar = document.querySelector('#navbar');
 const searchIcon = document.querySelector('#navbar-search');
 const closeIcon = document.querySelector('#navbar-close');
 const searchForm = document.querySelector('#search-form');
 const searchInput = document.querySelector('#navbar .input.search');
 // para qeu el storage spsrezca en el buscador
-//searchInput.value = getItem('navbar-input');
+searchInput.value = getItem('search');
 
 const handleNavbar = toogle(navbar);
 
@@ -21,11 +21,12 @@ closeIcon.addEventListener('click', () => {
   handleNavbar('search', 'no-search');
 });
 
+
 searchForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if(searchInput.validity.valid){
     //render shows
-    setItem('navbarInput', searchInput.value);
+    setItem('search', searchInput.value);
     renderShowsDOM(searchInput.value);
   } else {
     renderShowsDOM();
