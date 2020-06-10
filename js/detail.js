@@ -1,5 +1,5 @@
 import api from './api.js';
-import {renderQuotes} from './quotes.js'
+import {renderQuotes} from './quotes.js';
 
 const {getShowDetail} = api();
 
@@ -26,18 +26,18 @@ const detailTemplate = ({name,image,id,summary}) =>`
 
 
 const renderDetail = async id => {
-    try{
-        const selector = document.querySelector('main');
-        // de la llamada recibiremos un show -> Sustituido pr Promise.all
-        //const show = await getShowDetail(id); -> Sustituido pr Promise.all
-        // Con el destructuring conseguimos el valor de la posición 1 de la array
-        // el show se queda con el valor de la primera promise(getShowDetail).
-        const [show] = await Promise.all([getShowDetail(id), renderQuotes(id)]);
-        //renderQuotes(id); -> Sustituido por Promise.all
-        selector.innerHTML = detailTemplate(show);
-    } catch(err){
-        console.error(err);
-    }
+  try{
+    const selector = document.querySelector('main');
+    // de la llamada recibiremos un show -> Sustituido pr Promise.all
+    //const show = await getShowDetail(id); -> Sustituido pr Promise.all
+    // Con el destructuring conseguimos el valor de la posición 1 de la array
+    // el show se queda con el valor de la primera promise(getShowDetail).
+    const [show] = await Promise.all([getShowDetail(id), renderQuotes(id)]);
+    //renderQuotes(id); -> Sustituido por Promise.all
+    selector.innerHTML = detailTemplate(show);
+  } catch(err){
+    console.error(err);
+  }
   
 };
 

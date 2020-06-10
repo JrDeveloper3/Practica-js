@@ -74,10 +74,10 @@ const {getShows} = api();
 
 const renderShowsDOM = async text => {
   try{
-   renderLoader('hide','show');
-   const mainSection = document.querySelector('main');
-   const items = await getShows(text);
-   renderShows(mainSection, items);
+    renderLoader('hide','show');
+    const mainSection = document.querySelector('main');
+    const items = await getShows(text);
+    renderShows(mainSection, items);
   } catch (err){
     console.error(err);
   } finally {
